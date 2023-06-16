@@ -11,7 +11,7 @@ class PriceScreen extends StatefulWidget {
 }
 
 class PriceScreenState extends State<PriceScreen> {
-  String? selectedCurrency = 'USD';
+  String? selectedCurrency = 'AUD';
   String coinValue = '?';
 
   DropdownButton<String> androidDropdown() {
@@ -32,6 +32,7 @@ class PriceScreenState extends State<PriceScreen> {
       onChanged: (value) {
         setState(() {
           selectedCurrency = value;
+          getData();
         });
       },
     );
@@ -41,15 +42,16 @@ class PriceScreenState extends State<PriceScreen> {
     List<Text> cupertinoPickerItems = [];
 
     for (String currency in currenciesList) {
-      cupertinoPickerItems.add(
-        Text(currency),
-      );
+      cupertinoPickerItems.add(Text(currency));
     }
 
     return CupertinoPicker(
       itemExtent: 32.0,
       onSelectedItemChanged: (selectedIndex) {
-        print(selectedIndex);
+        setState(() {
+          selectedCurrency = currenciesList[selectedIndex];
+        });
+        getData();
       },
       children: cupertinoPickerItems,
     );
@@ -57,7 +59,7 @@ class PriceScreenState extends State<PriceScreen> {
 
   void getData() async {
     try {
-      double data = await CoinData().getData();
+      double data = await CoinData().getData(selectedCurrency);
 
       setState(() {
         coinValue = data.toStringAsFixed(0);
@@ -95,7 +97,7 @@ class PriceScreenState extends State<PriceScreen> {
                 padding: const EdgeInsets.symmetric(
                     vertical: 15.0, horizontal: 28.0),
                 child: Text(
-                  '1 BTC = $coinValue USD',
+                  '1 BTC = $coinValue $selectedCurrency',
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     fontSize: 20.0,
@@ -111,6 +113,7 @@ class PriceScreenState extends State<PriceScreen> {
             padding: const EdgeInsets.only(bottom: 30.0),
             color: Colors.lightBlue,
             child: Platform.isIOS ? iosPicker() : androidDropdown(),
+            // child: iosPicker(),
           ),
         ],
       ),
