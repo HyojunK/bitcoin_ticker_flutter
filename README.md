@@ -1,16 +1,11 @@
-# bitcoin_ticker_flutter
+# Bitcoin_ticker App 📈
+<img src="https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=Dart&logoColor=white"> <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=Flutter&logoColor=white">
+* A real time crypto currency price checking application.
 
-A new Flutter project.
+<br/>
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📷 Preview
+![bitcoin_ticker_preview_android](https://github.com/HyojunK/bitcoin_ticker_flutter/assets/26563226/5cc4d836-3c08-409f-a22c-8b515ed84535)
+![bitcoin_ticker_preview_iOS](https://github.com/HyojunK/bitcoin_ticker_flutter/assets/26563226/5445ab4b-5c2f-4263-ac33-c9bcd86b1b2b)
+  
+<br/>
